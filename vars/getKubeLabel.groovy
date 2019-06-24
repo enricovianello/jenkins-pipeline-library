@@ -15,5 +15,7 @@ def call(Closure script) {
       label = clearedJobName + '-' + jobBuildNumber
   }
 
+  echo "kubeLabel = ${label}"
+
   return label
 }

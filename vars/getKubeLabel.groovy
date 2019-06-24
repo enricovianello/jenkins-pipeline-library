@@ -2,11 +2,11 @@
 
 def call() {
 
-  def String clearedJobName = env.JOB_NAME.split('/')[0]
-  def String clearedJobBaseName = env.JOB_BASE_NAME.replaceAll('%2F','-')
-  def String jobBuildNumber = env.BUILD_NUMBER
+  def String clearedJobName = JOB_NAME.split('/')[0]
+  def String clearedJobBaseName = JOB_BASE_NAME.replaceAll('%2F','-')
+  def String jobBuildNumber = BUILD_NUMBER
 
-  if (env.JOB_NAME != env.JOB_BASE_NAME) {
+  if (JOB_NAME != JOB_BASE_NAME) {
       // multi branch pipeline
       return clearedJobName + '-' + clearedJobBaseName + '-' + jobBuildNumber
   } else {

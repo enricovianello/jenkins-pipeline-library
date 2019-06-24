@@ -1,9 +1,12 @@
 #!/usr/bin/env groovy
 
-def call(String jobName, String jobBaseName, String jobBuildNumber) {
-  def clearedJobName = jobName.split('/')[0]
-  def clearedJobBaseName = jobBaseName.replaceAll('%2F','-')
-  if (jobName != jobBaseName) {
+def call() {
+
+  def clearedJobName = env.JOB_NAME.split('/')[0]
+  def clearedJobBaseName = env.JOB_BASE_NAME.replaceAll('%2F','-')
+  def jobBuildNumber = env.BUILD_NUMBER
+
+  if (env.JOB_NAME != env.JOB_BASE_NAME) {
       // multi branch pipeline
       return clearedJobName + '-' + clearedJobBaseName + '-' + jobBuildNumber
   }

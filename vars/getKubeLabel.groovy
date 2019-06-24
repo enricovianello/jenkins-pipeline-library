@@ -6,17 +6,11 @@ def call() {
   def String clearedJobBaseName = env.JOB_BASE_NAME.replaceAll('%2F','-')
   def String jobBuildNumber = env.BUILD_NUMBER
 
-  def String label = ""
-
   if (env.JOB_NAME != env.JOB_BASE_NAME) {
       // multi branch pipeline
-      label = clearedJobName + '-' + clearedJobBaseName + '-' + jobBuildNumber
+      return clearedJobName + '-' + clearedJobBaseName + '-' + jobBuildNumber
   } else {
       // simple pipeline
-      label = clearedJobName + '-' + jobBuildNumber
+      return clearedJobName + '-' + jobBuildNumber
   }
-
-  echo "kubeLabel = ${label}"
-
-  return label
 }

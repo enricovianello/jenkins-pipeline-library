@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def call(script) {
+def call(Closure script) {
 
   def String clearedJobName = JOB_NAME.split('/')[0]
   def String clearedJobBaseName = JOB_BASE_NAME.replaceAll('%2F','-')

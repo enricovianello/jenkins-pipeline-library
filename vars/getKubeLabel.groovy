@@ -16,7 +16,7 @@ def call() {
       label = clearedJobName + '-' + jobBuildNumber
   }
 
-  println "kubeLabel = " + label
+  echo "kubeLabel = ${label}"
 
   return label
 }

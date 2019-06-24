@@ -16,7 +16,7 @@ def call() {
       label = clearedJobName + '-' + jobBuildNumber
   }
 
-  log.info "kubeLabel = " + label
+  println "kubeLabel = " + label
 
   return label
 }
